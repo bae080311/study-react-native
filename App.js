@@ -1,14 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
-
+import * as Location from "expo-location";
+import React, { useEffect, useState } from "react";
+import { View, Text, Dimensions, StyleSheet, ScrollView } from "react-native";
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default function App() {
+  const [location, setLocation] = useState();
+  const [ok, setOk] = useState(true);
+  const ask = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) {
+      setOk(false);
+    }
+  };
+  useEffect(() => {
+    ask();
+  }, []);
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
       <View style={styles.city}>
-        <Text style={styles.cityname}>서울</Text>
+        <Text style={styles.cityName}>서울</Text>
       </View>
       <ScrollView
         pagingEnabled
@@ -36,27 +46,28 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "tomato",
   },
   city: {
-    flex: 1,
+    flex: 1.2,
     justifyContent: "center",
     alignItems: "center",
   },
-  cityname: {
-    fontSize: 68,
+  cityName: {
+    fontSize: 58,
     fontWeight: "500",
   },
+  weather: {},
   day: {
     width: SCREEN_WIDTH,
     alignItems: "center",
   },
   temp: {
     marginTop: 50,
+    fontWeight: "600",
     fontSize: 178,
   },
   description: {
