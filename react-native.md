@@ -14,3 +14,9 @@ View는 Container 역할을 한다
 ### StatusBar
 
 핸드폰에 기본으로 있는 상단 바를 설정한다
+
+### Flex
+
+오직 flex 밖에 없음
+flexDirection의 기본 값은 column으로 웹과 다름
+flexsize를 지정할 수 있음 (비율)
