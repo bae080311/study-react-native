@@ -10,7 +10,12 @@ export default function App() {
       <View style={styles.city}>
         <Text style={styles.cityname}>서울</Text>
       </View>
-      <ScrollView horizontal contentContainerStyle={styles.weather}>
+      <ScrollView
+        pagingEnabled
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.weather}
+      >
         <View style={styles.day}>
           <Text style={styles.temp}>27</Text>
           <Text style={styles.description}>Sunny</Text>
