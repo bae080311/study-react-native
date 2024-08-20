@@ -16,7 +16,11 @@ const API_KEY = "784ab24ff2ed5d94d4288abed9e25d13";
 const icons = {
   Clouds: "cloudy",
   Clear: "day-sunny",
-  Rain: "rain",
+  Rain: "rains",
+  Drizzle: "rain",
+  Thunderstorm: "lightning",
+  Snow: "snow",
+  Mist: "day-haze",
 };
 
 export default function App() {
